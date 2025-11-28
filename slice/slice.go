@@ -15,10 +15,54 @@ import "fmt"
 4. make function with len
 5. make function with len and cap
 6. empty slice of nil slice
+7. slice underlying array rule => 1024 -> double lengh will be multiply by 2. 1x2 2x2 3xnothing 4xnothing as like 1024. 1024 cross korle 25% kore increase korbe.
 */
 
+//! Variadic Function using Slice
+func print(numbers ...int)  {
+	fmt.Println(numbers)
+	fmt.Println(len(numbers))
+	fmt.Println(cap(numbers))
+}
+
+func changedSlice(p [] int) [] int  {
+	p[0] = 10
+	p = append(p, 11)
+	return p
+}
 
 func main() {
+	print(5, 6, 7, 8, 9, 10)
+
+	x := [] int {1, 2, 3, 4, 5, 6, 7,}
+	x = append(x, 8)
+	x = append(x, 9)
+
+	a := x[4:]
+
+	y := changedSlice(a)
+
+	fmt.Println(x)
+	fmt.Println(y)
+
+
+
+	// var x [] int
+	// x = append(x, 1)
+	// x = append(x, 2)
+	// x = append(x, 3)
+
+	// y := x
+
+	// x = append(x, 4)
+	// y = append(y, 5)
+
+	// x[0] = 10
+
+	// fmt.Println(x) //? [10, 2, 3, 5]
+	// fmt.Println(y) //? [10, 2, 3, 5]
+
+
 	// s := [] int {1, 2, 5} //? Slice Literal (pointer, lengh, capacity)
 	// fmt.Println("Slice: ", s, "Lengh: ", len(s), "Capacity: ", cap(s))
 
@@ -38,13 +82,13 @@ func main() {
 
 	//! make slice using append() function
 
-	var s [] int // len = 0, cap = 0
+	// var s [] int // len = 0, cap = 0
 	// s = append(s, 1)
-	s = append(s, 1, 2, 3)
-	fmt.Println(s)
+	// s = append(s, 1, 2, 3)
+	// fmt.Println(s)
 
-	arr := [6] string{"This", "is", "a", "must", "interview", "question"}
-	fmt.Println(arr)
+	// arr := [6] string{"This", "is", "a", "must", "interview", "question"}
+	// fmt.Println(arr)
 
 	// s := arr[1:4]
 	// fmt.Println(s)
