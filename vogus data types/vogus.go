@@ -22,6 +22,7 @@ func main() {
 	fmt.Printf("%.2f\n", j) //? float -> "%f" . er pore digit define "%.3f"
 	fmt. Printf("%v\n", flag) //? boolean -> "%v"
 	fmt.Printf("%s\n", s) //? string -> "%s"
+	fmt.Printf("%T\n", s) //? type checking -> "%T"
 
 
 	//! rune
